@@ -36,7 +36,7 @@ def update_cave_grid(grid):
     new_grid = [[False for _ in range(grid_width)] for _ in range(grid_height)]
     for y in range(1, grid_height - 1):
         for x in range(1, grid_width - 1):
-            wall_count = sum(1 for i in range(-1, 2) for j in range(-1, 2) if cave_grid[y + i][x + j])
+            wall_count = sum(1 for i in range(-1, 2) for j in range(-1, 2) if grid[y + i][x + j])
             if wall_count >= 5:
                 new_grid[y][x] = 1
 
