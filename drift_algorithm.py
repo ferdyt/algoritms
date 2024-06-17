@@ -7,6 +7,8 @@ pygame.init()
 screen_width, screen_height = 1280, 720
 
 grid_size = 10
+grid_width = screen_width // grid_size
+grid_height = screen_height // grid_size
 
 # Цвета
 BLACK = (0, 0, 0)
@@ -35,17 +37,17 @@ while running:
             running = False
 
     # Выбираем случайное место для начала дрифта
-    x, y = random.randint(0, len(grid[0]) - 1), random.randint(0, len(cave_grid) - 1)
+    x, y = random.randint(0, len(grid[0]) - 1), random.randint(0, len(grid) - 1)
     
     # Дрифт
     if count <= iteration:
-        for _ in range(500):
+        for _ in range(300):
             grid[y][x] = True
             dx, dy = get_random_direction()
             x = max(0, min(x + dx, len(grid[0]) - 1))
             y = max(0, min(y + dy, len(grid) - 1))
 
-    screen.fill(YELLOW)
+    screen.fill(BLACK)
 
     for y in range(len(grid)):
         for x in range(len(grid[y])):
